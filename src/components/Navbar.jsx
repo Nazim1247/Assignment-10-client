@@ -1,12 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
+  const {user, signoutUser} = useContext(AuthContext);
+
+  const handleSignout = ()=>{
+    signoutUser()
+    .then(() =>{
+      console.log('signout successfully')
+    })
+    .catch(error => console.log(error.message))
+  }
     const links = <>
     <li><NavLink to='/' className='mr-3'>Home</NavLink></li>  
     <li><NavLink to='/sports' className='mr-3'>All Sports Equipment</NavLink></li>
-    <li><NavLink to='/addEquipment' className='mr-3'>Add Equipment</NavLink></li>
-    <li><NavLink to='/myEquipment' className='mr-3'>My Equipment</NavLink></li>
+    {
+      user && <>
+      <li><NavLink to='/addEquipment' className='mr-3'>Add Equipment</NavLink></li>
+      <li><NavLink to='/myEquipment' className='mr-3'>My Equipment</NavLink></li>
+      </>
+    }
     </>
     return (
         <div>
@@ -41,9 +55,20 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end space-x-2">
-    <NavLink to='/login' className={`btn btn-sm`}>Login</NavLink>
-    <NavLink to='/register' className={`btn btn-sm`}>Register</NavLink>
-    <button className='btn btn-sm'>Logout</button>
+    {/* <NavLink to='/login' className={`btn btn-sm`}>Login</NavLink>
+    <NavLink to='/register' className={`btn btn-sm`}>Register</NavLink> */}
+    
+    {
+      user ? <>
+      <span>{user.email}</span>
+      <button onClick={handleSignout} className='btn btn-sm'>Logout</button>
+      </>
+      :
+      <>
+      <Link to='/login' className='btn'>Login</Link>
+      <Link to='/register' className='btn'>Register</Link>
+      </>
+    }
   </div>
 </div>
         </div>

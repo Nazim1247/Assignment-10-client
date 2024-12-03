@@ -10,6 +10,8 @@ import Sports from './components/Sports.jsx'
 import AddEquipment from './components/AddEquipment.jsx'
 import MyEquipment from './components/MyEquipment.jsx'
 import ErrorPage from './errorPage/ErrorPage.jsx'
+import AuthProvider from './providers/AuthProvider.jsx'
+import PrivateRoute from './privateRoute/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,11 +29,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/addEquipment',
-        element: <AddEquipment></AddEquipment>
+        element: <PrivateRoute>
+          <AddEquipment></AddEquipment>
+        </PrivateRoute>
       },
       {
         path: '/myEquipment',
-        element: <MyEquipment></MyEquipment>
+        element: <PrivateRoute>
+          <MyEquipment></MyEquipment>
+        </PrivateRoute>
       },
       {
         path: '/login',
@@ -47,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>,
 )
