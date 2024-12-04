@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <div>
             <div className="hero py-12">
-  <div className="hero-content flex-col w-1/2 mx-auto">
+  <div className="hero-content flex-col md:w-1/2 mx-auto">
     <div className="text-center lg:text-left">
       <h1 className="text-2xl font-bold">Login now!</h1>
     </div>
