@@ -13,6 +13,11 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(name,photo,email,password);
 
+        if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
+            alert('not valid')
+            return
+        }
+
         createUser(email,password)
         .then(result =>{
             console.log(result.user)
