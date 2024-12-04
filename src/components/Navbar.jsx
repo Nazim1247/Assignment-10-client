@@ -55,9 +55,6 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end space-x-2">
-    {/* <NavLink to='/login' className={`btn btn-sm`}>Login</NavLink>
-    <NavLink to='/register' className={`btn btn-sm`}>Register</NavLink> */}
-    
     {
       user ? <>
       <span>{user.email}</span>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const {signInUser, loginWithGoogle} = useContext(AuthContext);
@@ -62,6 +62,9 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <button onClick={handleLoginGoogle} className='btn'>Login With Google</button>
+        <label className="label">
+            <Link to='/register' className="label-text-alt text-lg mx-auto">New to this page? please <span className='text-red-600'> Register</span></Link>
+          </label>
       </form>
     </div>
   </div>
