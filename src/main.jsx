@@ -6,12 +6,13 @@ import Home from './components/Home.jsx'
 import Root from './components/Root.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
-import Sports from './components/Sports.jsx'
 import AddEquipment from './components/AddEquipment.jsx'
 import MyEquipment from './components/MyEquipment.jsx'
 import ErrorPage from './errorPage/ErrorPage.jsx'
 import AuthProvider from './providers/AuthProvider.jsx'
 import PrivateRoute from './privateRoute/PrivateRoute.jsx'
+import AllSports from './components/AllSports.jsx'
+import ProductDetails from './components/ProductDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,11 +22,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: '/sports',
-        element: <Sports></Sports>
+        element: <AllSports></AllSports>,
+        loader: ()=> fetch('http://localhost:5000/products')
       },
       {
         path: '/addEquipment',
@@ -46,6 +48,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/productDetails/:id',
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
       },
     ],
   },
