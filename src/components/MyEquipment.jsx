@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyEquipment = () => {
-    const products = useLoaderData();
+    const loadedProducts = useLoaderData();
+    const [products, setProducts] = useState(loadedProducts)
 
     const handleDelete =(id)=>{
         console.log(id)
@@ -30,6 +31,8 @@ const MyEquipment = () => {
                         text: "Your Product has been deleted.",
                         icon: "success"
                       });
+                     const remaining = products.filter(p => p._id !== id);
+                     setProducts(remaining);
                 }
               })
             }

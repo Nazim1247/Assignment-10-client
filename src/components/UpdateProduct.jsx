@@ -49,9 +49,6 @@ const UpdateProduct = () => {
             <div className='lg:w-3/4 mx-auto py-8'>
             <div className="text-center p-10">
                 <h1 className="text-3xl font-bold">Update Product!</h1>
-                <p className="py-6">
-                Add new sports products to our inventory with details like images, name, category, price, stock status, and customization options. User details are auto-filled for accountability. Secure and accessible only to authenticated users, ensuring efficient catalog management.
-                </p>
             </div>
             <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                 <form onSubmit={handleUpdateProduct} className="card-body">

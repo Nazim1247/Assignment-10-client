@@ -5,8 +5,8 @@ import ProductCard from './ProductCard';
 const AllSports = () => {
     const products = useLoaderData();
     return (
-        <div>
-            all products: {products.length}
+        <div className='w-11/12 mx-auto py-8'>
+            
             {
                 products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
             }
