@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const {createUser, setUser, updateUserProfile} = useContext(AuthContext);
@@ -14,12 +15,39 @@ const Register = () => {
         console.log(name,photo,email,password);
 
         if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
-            alert('not valid')
+          Swal.fire({
+            title: 'Error!',
+            text: 'Your information is Not Valid',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
             return
         }
 
         createUser(email,password)
         .then(result =>{
+
+          const createdAt = result?.user?.metadata?.creationTime;
+          const newUser = {name,email,createdAt};
+          // save new user info to the database
+          fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers: {
+              'content-type':'application/json'
+            },
+            body: JSON.stringify(newUser)
+          })
+          .then(res => res.json())
+          .then(data =>{
+            if(data.insertedId){
+              Swal.fire({
+                title: 'Success!',
+                text: 'Register Successful',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+            }
+          })
             console.log(result.user)
             setUser(result.user)
             navigate('/')

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-    const { _id, name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, } = product;
+    // const { _id, name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, } = product;
     return (
         <div>
             {/* <div className="card card-side bg-base-100 shadow-xl">
@@ -43,15 +43,17 @@ const ProductCard = ({ product }) => {
                     </thead>
                     <tbody>
                         
-                        <tr>
-                            <th>{1}</th>
-                            <td>{name}</td>
-                            <td>{category}</td>
-                            <td>{price}</td>
-                            <td>
-                            <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
-                            </td>
-                        </tr>
+                        {
+                            product?.map(p => <tr key={p._id}>
+                                <th>{1}</th>
+                                <td>{p.name}</td>
+                                <td>{p.category}</td>
+                                <td>{p.price}</td>
+                                <td>
+                                <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
+                                </td>
+                            </tr>)
+                        }
                         
                     </tbody>
                 </table>
