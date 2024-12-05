@@ -7,10 +7,10 @@ const ProductDetails = () => {
     return (
         <div className='w-11/12 mx-auto py-12'>
 
-            <div className="card card-side bg-base-100 shadow-xl">
+            <div className="card md:card-side bg-base-100 shadow-xl">
                 <figure className='p-6'>
                     <img
-                        className='w-full h-96 rounded-lg'
+                        className='w-full h-56 md:h-96 rounded-lg'
                         src={photo}
                         alt="" />
                 </figure>

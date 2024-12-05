@@ -7,7 +7,7 @@ const AllSports = () => {
     return (
         <div className='w-11/12 mx-auto py-8'>
 
-            <div className="overflow-x-auto">
+            <div className="border-2">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -23,7 +23,7 @@ const AllSports = () => {
                         {/* row 1 */}
                         {
                             products.map(product => <tr key={product._id}>
-                                <th>{1}</th>
+                                <th>1</th>
                                 <td>{product.name}</td>
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
