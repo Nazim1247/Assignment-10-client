@@ -9,7 +9,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div className='text-center'>
-                <h2 className='text-xl font-bold'>Explore Our Premium Sports Equipment</h2>
+                <h2 className='text-2xl font-bold mb-2'>Explore Our Premium Sports Equipment</h2>
                 <p className='md:w-2/3 mx-auto px-5'>Discover a wide range of high-quality sports gear and accessories designed to elevate your game. From durable equipment to stylish apparel, find everything you need to perform at your best.</p>
             </div>
             <div className='w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-8'>

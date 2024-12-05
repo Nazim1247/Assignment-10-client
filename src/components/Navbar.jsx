@@ -20,12 +20,12 @@ const Navbar = () => {
     <a className="text-xl font-bold">Sports Equipment Online Store</a>
   </div>
   <div className="lg:flex items-center gap-2">
-    <NavLink to='/' className={({isActive})=>isActive?'btn text-green-600':'btn'}>Home</NavLink>  
-    <NavLink to='/sports' className={({isActive})=>isActive?'btn text-green-600':'btn'}>All Sports Equipment</NavLink>
+    <NavLink to='/' className={({isActive})=>isActive?'btn text-blue-700':'btn'}>Home</NavLink>  
+    <NavLink to='/sports' className={({isActive})=>isActive?'btn text-blue-700':'btn'}>All Sports Equipment</NavLink>
     {
       user && <>
-      <NavLink to='/addEquipment' className={({isActive})=>isActive?'btn text-green-600':'btn'}>Add Equipment</NavLink>
-      <NavLink to='/myEquipment' className={({isActive})=>isActive?'btn text-green-600':'btn'}>My Equipment</NavLink>
+      <NavLink to='/addEquipment' className={({isActive})=>isActive?'btn text-blue-700':'btn'}>Add Equipment</NavLink>
+      <NavLink to='/myEquipment' className={({isActive})=>isActive?'btn text-blue-700':'btn'}>My Equipment</NavLink>
       </>
     }
   </div>

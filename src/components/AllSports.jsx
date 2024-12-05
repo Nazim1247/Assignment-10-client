@@ -22,8 +22,8 @@ const AllSports = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            products.map(product => <tr key={product._id}>
-                                <th>1</th>
+                            products.map((product, i) => <tr key={product._id}>
+                                <th>{i+1}</th>
                                 <td>{product.name}</td>
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
