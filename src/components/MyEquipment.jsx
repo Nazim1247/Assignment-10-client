@@ -58,7 +58,7 @@ const MyEquipment = () => {
                         <p>{product.userEmail}</p>
                         <p>{product.processingTime}</p>
                         <div className="card-actions">
-                            <Link to='/update' className="btn btn-primary">Update</Link>
+                            <Link to={`/update/${product._id}`} className="btn btn-primary">Update</Link>
                             <button onClick={()=>handleDelete(product._id)} className="btn btn-primary">Delete</button>
                         </div>
                     </div>
