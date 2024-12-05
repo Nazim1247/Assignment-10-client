@@ -23,7 +23,7 @@ const AllSports = () => {
                         {/* row 1 */}
                         {
                             products.map(product => <tr key={product._id}>
-                                <th>{product._id + 1}</th>
+                                <th>{1}</th>
                                 <td>{product.name}</td>
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
