@@ -21,8 +21,7 @@ const UpdateProduct = () => {
         const userName = form.userName.value;
         const photo = form.photo.value;
         const updatedProduct = {name,rating,category,customization,userEmail,stockStatus,price,description,processingTime,userName,photo,};
-        console.log(updatedProduct)
-
+    
         // send data to the server
         fetch(`http://localhost:5000/products/${_id}`, {
             method: 'PUT',
@@ -33,7 +32,6 @@ const UpdateProduct = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.modifiedCount){
                 Swal.fire({
                     title: 'Success!',

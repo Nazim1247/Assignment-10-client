@@ -2,17 +2,8 @@ import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
 
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-
-
 const AddEquipment = () => {
     const {user} = useContext(AuthContext);
-    console.log(user)
-    // const [selectedTime, setSelectedTime] = useState(new Date);
-    // const handleTimeChange = (time)=>{
-    //     setSelectedTime(time);
-    // }
 
     const handleAddProduct = (e) => {
         e.preventDefault();
@@ -29,7 +20,6 @@ const AddEquipment = () => {
         const userName = form.userName.value;
         const photo = form.photo.value;
         const newProduct = { name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, };
-        console.log(newProduct)
 
         // send data to the server
         fetch('http://localhost:5000/products', {
@@ -41,7 +31,6 @@ const AddEquipment = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -67,6 +56,25 @@ const AddEquipment = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
+                                    <span className="label-text">User Email</span>
+                                </label>
+                                <input type="text" name='userEmail'
+                                value={user.email}
+                                placeholder="User Email" className="input input-bordered" readOnly />
+                            </div>
+                            <div className="form-control flex-1">
+                                <label className="label">
+                                    <span className="label-text">User Name</span>
+                                </label>
+                                <input type="text" name='userName'
+                                value={user.displayName}
+                                placeholder="User Name" className="input input-bordered" readOnly />
+                            </div>
+                        </div>
+                        {/* form second row */}
+                        <div className='flex flex-col lg:flex-row gap-5'>
+                            <div className="form-control flex-1">
+                                <label className="label">
                                     <span className="label-text">Item Name</span>
                                 </label>
                                 <input type="text" name='name' placeholder="item name" className="input input-bordered" required />
@@ -78,7 +86,7 @@ const AddEquipment = () => {
                                 <input type="text" name='stockStatus' placeholder="Stock Status" className="input input-bordered" required />
                             </div>
                         </div>
-                        {/* form second row */}
+                        {/* form third row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
@@ -93,7 +101,7 @@ const AddEquipment = () => {
                                 <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
                             </div>
                         </div>
-                        {/* form third row */}
+                        {/* form forth row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
@@ -108,7 +116,7 @@ const AddEquipment = () => {
                                 <input type="text" name='description' placeholder="description" className="input input-bordered" required />
                             </div>
                         </div>
-                        {/* form forth row */}
+                        {/* form 5th row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
@@ -130,26 +138,7 @@ const AddEquipment = () => {
                                 /> */}
                                 <input type="text" name='processingTime' placeholder="Processing Time" className="input input-bordered" required />
                             </div>
-                        </div>
-                        {/* form 5th row */}
-                        <div className='flex flex-col lg:flex-row gap-5'>
-                            <div className="form-control flex-1">
-                                <label className="label">
-                                    <span className="label-text">User Email</span>
-                                </label>
-                                <input type="text" name='userEmail'
-                                value={user.email}
-                                placeholder="User Email" className="input input-bordered" readOnly />
-                            </div>
-                            <div className="form-control flex-1">
-                                <label className="label">
-                                    <span className="label-text">User Name</span>
-                                </label>
-                                <input type="text" name='userName'
-                                value={user.displayName}
-                                placeholder="User Name" className="input input-bordered" readOnly />
-                            </div>
-                        </div>
+                        </div>                      
                         {/* form 6th row */}
                         <div className="form-control">
                             <label className="label">

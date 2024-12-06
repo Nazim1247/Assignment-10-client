@@ -12,7 +12,6 @@ const Register = () => {
         const email = e.target.email.value;
         const photo = e.target.photo.value;
         const password = e.target.password.value;
-        console.log(name,photo,email,password);
 
         if(!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)){
           Swal.fire({
@@ -48,7 +47,6 @@ const Register = () => {
               })
             }
           })
-            console.log(result.user)
             setUser(result.user)
             navigate('/')
             updateUserProfile({displayName: name, photoURL: photo})

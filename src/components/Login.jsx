@@ -10,11 +10,9 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email,password);
 
         signInUser(email,password)
         .then(result =>{
-            console.log(result.user)
             navigate('/')
             if(result.user){
               Swal.fire({
@@ -26,7 +24,6 @@ const Login = () => {
             }
         })
         .catch(error =>{
-            console.log(error.message)
             if(error.message){
               Swal.fire({
                 title: 'Error!',

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
   const {user, signoutUser} = useContext(AuthContext);
@@ -8,7 +9,12 @@ const Navbar = () => {
   const handleSignout = ()=>{
     signoutUser()
     .then(() =>{
-      console.log('signout successfully')
+      Swal.fire({
+        title: 'Success!',
+        text: 'Logout Successful',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     })
     .catch(error => console.log(error.message))
   }
