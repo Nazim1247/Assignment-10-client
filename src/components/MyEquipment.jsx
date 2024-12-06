@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const MyEquipment = () => {
   const loadedProducts = useLoaderData();
   const [products, setProducts] = useState(loadedProducts)
-
+console.log(products)
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -18,7 +18,7 @@ const MyEquipment = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://my-assignment-10.vercel.app/products/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

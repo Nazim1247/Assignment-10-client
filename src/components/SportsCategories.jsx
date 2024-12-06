@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 const categories = [
     { id: 1, name: "Cricket Gear" },
     { id: 2, name: "Football Equipment" },
@@ -13,7 +14,7 @@ const SportsCategories = () => {
         <div className='w-11/12 mx-auto md:flex justify-between items-center gap-5 py-5'>
             
             {
-                categories.map(category => <button key={category.id} className='btn'>{category.name}</button>)
+                categories.map(category => <Link key={category.id} className='btn' to={`/sports`}>{category.name}</Link>)
             }
             
         </div>

@@ -29,7 +29,7 @@ const Register = () => {
           const createdAt = result?.user?.metadata?.creationTime;
           const newUser = {name,email,createdAt};
           // save new user info to the database
-          fetch('http://localhost:5000/users',{
+          fetch('https://my-assignment-10.vercel.app/users',{
             method: 'POST',
             headers: {
               'content-type':'application/json'

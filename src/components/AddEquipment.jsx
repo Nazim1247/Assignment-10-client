@@ -22,7 +22,7 @@ const AddEquipment = () => {
         const newProduct = { name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, };
 
         // send data to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://my-assignment-10.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

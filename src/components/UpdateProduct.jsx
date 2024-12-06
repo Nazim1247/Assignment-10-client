@@ -23,7 +23,7 @@ const UpdateProduct = () => {
         const updatedProduct = {name,rating,category,customization,userEmail,stockStatus,price,description,processingTime,userName,photo,};
     
         // send data to the server
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://my-assignment-10.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -24,12 +24,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/fixed-products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/fixed-products')
       },
       {
         path: '/sports',
         element: <AllSports></AllSports>,
-        loader: ()=> fetch('http://localhost:5000/products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/all-products')
       },
       {
         path: '/addEquipment',
@@ -42,21 +42,21 @@ const router = createBrowserRouter([
       //   element: <PrivateRoute>
       //     <MyEquipment></MyEquipment>
       //   </PrivateRoute>,
-      //   loader: ({params})=> fetch(`http://localhost:5000/products/${params.email}`)
+      //   loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.email}`)
       // },
       {
         path: '/myEquipment',
         element: <PrivateRoute>
           <MyEquipment></MyEquipment>
         </PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5000/products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
       },
       {
         path: '/update/:id',
         element: <PrivateRoute>
           <UpdateProduct></UpdateProduct>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.id}`)
       },
       {
         path: '/login',
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ProductDetails></ProductDetails>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.id}`)
       },
     ],
   },
