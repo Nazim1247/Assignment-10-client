@@ -6,7 +6,7 @@ import SportsCategories from './SportsCategories';
 
 const Home = () => {
     const products = useLoaderData();
-    const limitedProducts = products.slice(0, 6);
+    
     return (
         <div>
             <Banner></Banner>
@@ -23,7 +23,7 @@ const Home = () => {
 
             <div className='w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-8'>
             {
-                limitedProducts.map(product => <ProductsCard key={product._id} product={product}></ProductsCard>)
+                products.map(product => <ProductsCard key={product._id} product={product}></ProductsCard>)
             }
             </div>
 

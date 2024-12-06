@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/products'),
+        loader: ()=> fetch('http://localhost:5000/fixed-products')
       },
       {
         path: '/sports',
@@ -37,6 +37,13 @@ const router = createBrowserRouter([
           <AddEquipment></AddEquipment>
         </PrivateRoute>
       },
+      // {
+      //   path: '/myEquipment/:email',
+      //   element: <PrivateRoute>
+      //     <MyEquipment></MyEquipment>
+      //   </PrivateRoute>,
+      //   loader: ({params})=> fetch(`http://localhost:5000/products/${params.email}`)
+      // },
       {
         path: '/myEquipment',
         element: <PrivateRoute>

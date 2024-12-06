@@ -13,8 +13,9 @@ const SportsCategories = () => {
         <div className='w-11/12 mx-auto md:flex justify-between items-center gap-5 py-5'>
             
             {
-                categories.map(category => <button key={category._id} className='btn'>{category.name}</button>)
+                categories.map(category => <button key={category.id} className='btn'>{category.name}</button>)
             }
+            
         </div>
     );
 };

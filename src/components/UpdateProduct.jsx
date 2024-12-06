@@ -32,7 +32,7 @@ const UpdateProduct = () => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.modifiedCount){
+            if(data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Success!',
                     text: 'Product Updated Successfully',
@@ -54,6 +54,25 @@ const UpdateProduct = () => {
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
+                                <span className="label-text">User Email</span>
+                            </label>
+                            <input type="text" name='userEmail'
+                            defaultValue={userEmail}
+                            placeholder="User Email" className="input input-bordered" readOnly />
+                        </div>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">User Name</span>
+                            </label>
+                            <input type="text" name='userName'
+                            defaultValue={userName}
+                            placeholder="User Name" className="input input-bordered" readOnly />
+                        </div>
+                    </div>
+                    {/* form second row */}
+                    <div className='flex flex-col lg:flex-row gap-5'>
+                        <div className="form-control flex-1">
+                            <label className="label">
                                 <span className="label-text">Item Name</span>
                             </label>
                             <input type="text" name='name'
@@ -69,7 +88,7 @@ const UpdateProduct = () => {
                             placeholder="Stock Status" className="input input-bordered" required />
                         </div>
                     </div>
-                    {/* form second row */}
+                    {/* form third row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
@@ -88,7 +107,7 @@ const UpdateProduct = () => {
                             placeholder="Price" className="input input-bordered" required />
                         </div>
                     </div>
-                    {/* form third row */}
+                    {/* form forth row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
@@ -107,7 +126,7 @@ const UpdateProduct = () => {
                             placeholder="description" className="input input-bordered" required />
                         </div>
                     </div>
-                    {/* form forth row */}
+                    {/* form 5th row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
@@ -126,25 +145,7 @@ const UpdateProduct = () => {
                             placeholder="Processing Time" className="input input-bordered" required />
                         </div>
                     </div>
-                    {/* form 5th row */}
-                    <div className='flex flex-col lg:flex-row gap-5'>
-                        <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">User Email</span>
-                            </label>
-                            <input type="text" name='userEmail'
-                            defaultValue={userEmail}
-                            placeholder="User Email" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">User Name</span>
-                            </label>
-                            <input type="text" name='userName'
-                            defaultValue={userName}
-                            placeholder="User Name" className="input input-bordered" required />
-                        </div>
-                    </div>
+                    
                     {/* form 6th row */}
                         <div className="form-control">
                         <label className="label">
