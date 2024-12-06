@@ -27,39 +27,7 @@ const ProductsCard = ({ product }) => {
                         <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
                     </div>
                 </div>
-            </div>
-
-            {/* <div className="">
-                <table className="table">
-                    
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>category</th>
-                            <th>price</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        {
-                            product?.map(p => <tr key={p._id}>
-                                <th>{1}</th>
-                                <td>{p.name}</td>
-                                <td>{p.category}</td>
-                                <td>{p.price}</td>
-                                <td>
-                                <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
-                                </td>
-                            </tr>)
-                        }
-                        
-                    </tbody>
-                </table>
-            </div> */}
-
-            
+            </div>            
         </div>
     );
 };
