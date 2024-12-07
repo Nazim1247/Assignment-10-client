@@ -5,6 +5,31 @@ body{
     font-family: "Poppins", sans-serif;
 }
 
+/* Light Theme */
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  /* Dark Theme */
+  .dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  
+  .but-1 {
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .but-1:hover {
+    background-color: #f0f0f0;
+  }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

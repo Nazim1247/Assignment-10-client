@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+// import { AuthContext } from '../providers/AuthProvider';
 
 const MyEquipment = () => {
+  // const {user} = useContext(AuthContext);
+  // console.log(user.email)
   const loadedProducts = useLoaderData();
-  const [products, setProducts] = useState(loadedProducts)
-console.log(products)
+  const [products, setProducts] = useState(loadedProducts);
+  // console.log(products)
+
+  // fetch(`http://localhost:5000/products?email=${user.email}`)
+  // .then((response) => response.json())
+  // .then((data) => setProducts(data))
+  // .catch((error) => console.error("Error fetching equipment:", error));
+
+  // const newProduct = products.filter(pc => pc.userEmail === email);
+  // setProducts(newProduct);
+  // console.log(userEmail,email)
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -37,74 +51,76 @@ console.log(products)
     });
   }
   return (
-    <div className='w-11/12 mx-auto'>
+    <Slide duration={2000} delay={100} direction='down'>
+      <div className='w-11/12 mx-auto mt-8'>
 
-      {
-        products.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-xl mb-8">
-          <figure className='p-6 ml-6'>
-            <img
-              className='w-full md:w-[400px] h-56 md:h-96'
-              src={product.photo}
-              alt="" />
-          </figure>
-          <div className="p-10 space-y-2">
-            <div className='flex items-center gap-4'>
-              <h2 className="card-title">Item Name:</h2>
-              <h2 className="card-title">{product.name}</h2>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>description:</p>
-              <p>{product.description}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>category:</p>
-              <p>{product.category}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>customization:</p>
-              <p>{product.customization}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>stockStatus:</p>
-              <p>Available Stock {product.stockStatus}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>rating:</p>
-              <p>{product.rating}</p>
-              <div className="rating">
-                <input type="radio" name="rating-1" className="mask mask-star" />
-                <input type="radio" name="rating-1" className="mask mask-star" defaultChecked />
-                <input type="radio" name="rating-1" className="mask mask-star" />
-                <input type="radio" name="rating-1" className="mask mask-star" />
-                <input type="radio" name="rating-1" className="mask mask-star" />
+        {
+          products.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
+            <figure className='p-6 ml-6'>
+              <img
+                className='w-full md:w-[400px] h-56 md:h-96'
+                src={product.photo}
+                alt="" />
+            </figure>
+            <div className="p-10 space-y-2">
+              <div className='flex items-center gap-4'>
+                <h2 className="card-title">Item Name:</h2>
+                <h2 className="card-title">{product.name}</h2>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>description:</p>
+                <p>{product.description}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>category:</p>
+                <p>{product.category}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>customization:</p>
+                <p>{product.customization}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>stockStatus:</p>
+                <p>Available Stock {product.stockStatus}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>rating:</p>
+                <p>{product.rating}</p>
+                <div className="rating">
+                  <input type="radio" name="rating-1" className="mask mask-star" />
+                  <input type="radio" name="rating-1" className="mask mask-star" defaultChecked />
+                  <input type="radio" name="rating-1" className="mask mask-star" />
+                  <input type="radio" name="rating-1" className="mask mask-star" />
+                  <input type="radio" name="rating-1" className="mask mask-star" />
+                </div>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>price:</p>
+                <p>$ {product.price}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>processingTime:</p>
+                <p>{product.processingTime}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>userName:</p>
+                <p>{product.userName}</p>
+              </div>
+              <div className='flex gap-4'>
+                <p className='font-semibold'>userEmail:</p>
+                <p>{product.userEmail}</p>
+              </div>
+              <div className="card-actions">
+                <Link to={`/update/${product._id}`} className="btn btn-primary">Update</Link>
+                <button onClick={() => handleDelete(product._id)} className="btn btn-primary">Delete</button>
               </div>
             </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>price:</p>
-              <p>$ {product.price}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>processingTime:</p>
-              <p>{product.processingTime}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>userName:</p>
-              <p>{product.userName}</p>
-            </div>
-            <div className='flex gap-4'>
-              <p className='font-semibold'>userEmail:</p>
-              <p>{product.userEmail}</p>
-            </div>
-            <div className="card-actions">
-              <Link to={`/update/${product._id}`} className="btn btn-primary">Update</Link>
-              <button onClick={() => handleDelete(product._id)} className="btn btn-primary">Delete</button>
-            </div>
-          </div>
-        </div>))
-      }
+          </div>))
+        }
 
 
-    </div>
+      </div>
+    </Slide>
   );
 };
 

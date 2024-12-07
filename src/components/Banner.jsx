@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 const Banner = () => {
     return (
-        <div className='w-11/12 mx-auto py-12'>
+        <div className='w-11/12 mx-auto py-8'>
             {/* <img className='w-full h-[600px] mx-auto' src={banner} alt="" /> */}
 
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper text-center">

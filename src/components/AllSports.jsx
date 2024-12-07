@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { Zoom } from 'react-awesome-reveal';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllSports = () => {
     const loadedProducts = useLoaderData();
     const [products, setProducts] = useState(loadedProducts);
+    // const [sorted, setSorted] = useState([]);
 
     const handleSort = () => {
-        const sortedProducts = [...products].sort((a, b) => b.price - a.price);
-        setProducts(sortedProducts);
+        // const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+        // setProducts(sortedProducts);
+
+        fetch('https://my-assignment-10.vercel.app/all-products')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+        .catch(error => console.log(error))
 
     }
     return (
+        <Zoom>
         <div className='w-11/12 mx-auto py-8'>
             <div className='text-center mb-4'>
                 <button onClick={handleSort} className='btn btn-secondary'>Sort by Price</button>
@@ -47,6 +55,7 @@ const AllSports = () => {
             </div>
 
         </div>
+        </Zoom>
     );
 };
 

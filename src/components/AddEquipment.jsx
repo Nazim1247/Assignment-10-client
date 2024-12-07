@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
+import { Zoom } from 'react-awesome-reveal';
 
 const AddEquipment = () => {
     const {user} = useContext(AuthContext);
@@ -14,7 +15,7 @@ const AddEquipment = () => {
         const customization = form.customization.value;
         const userEmail = form.userEmail.value;
         const stockStatus = form.stockStatus.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const description = form.description.value;
         const processingTime = form.processingTime.value;
         const userName = form.userName.value;
@@ -43,6 +44,7 @@ const AddEquipment = () => {
     }
     return (
         <div>
+            <Zoom>
             <div className='lg:w-3/4 mx-auto py-8'>
                 <div className="text-center p-10">
                     <h1 className="text-3xl font-bold">Add Product!</h1>
@@ -50,7 +52,7 @@ const AddEquipment = () => {
                         Add new sports products to our inventory with details like images, name, category, price, stock status, and customization options. User details are auto-filled for accountability. Secure and accessible only to authenticated users, ensuring efficient catalog management.
                     </p>
                 </div>
-                <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-full shrink-0 shadow-md">
                     <form onSubmit={handleAddProduct} className="card-body">
                         {/* form first row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
@@ -154,6 +156,7 @@ const AddEquipment = () => {
                     </form>
                 </div>
             </div>
+            </Zoom>
         </div>
     );
 };
