@@ -6,6 +6,8 @@ import SportsCategories from './SportsCategories';
 import '../index.css'
 import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 import { Slide, Zoom } from 'react-awesome-reveal';
+import ExploreSports from './ExploreSports';
+import CustomerReviews from './CustomerReviews';
 
 const Home = () => {
     const products = useLoaderData();
@@ -45,6 +47,19 @@ const Home = () => {
                     }
                 </div>
             </Slide>
+
+            <Zoom>
+                <div>
+                    <CustomerReviews></CustomerReviews>
+                </div>
+            </Zoom>
+
+
+            <Zoom>
+                <div className='bg-blue-800 text-white py-8 my-8'>
+                    <ExploreSports></ExploreSports>
+                </div>
+            </Zoom>
 
         </div>
     );
