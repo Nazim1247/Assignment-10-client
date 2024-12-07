@@ -65,9 +65,6 @@ const ProductDetails = () => {
                         <p className='font-semibold'>description:</p>
                         <p>{description}</p>
                     </div>
-                    {/* <div className="card-actions">
-            <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
-            </div> */}
                 </div>
             </div>
         </div>

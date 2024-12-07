@@ -54,9 +54,8 @@ const Home = () => {
                 </div>
             </Zoom>
 
-
             <Zoom>
-                <div className='bg-blue-800 text-white py-8 my-8'>
+                <div className=''>
                     <ExploreSports></ExploreSports>
                 </div>
             </Zoom>

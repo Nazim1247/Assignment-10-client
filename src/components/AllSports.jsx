@@ -5,7 +5,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 const AllSports = () => {
     const loadedProducts = useLoaderData();
     const [products, setProducts] = useState(loadedProducts);
-    // const [sorted, setSorted] = useState([]);
 
     const handleSort = () => {
         // const sortedProducts = [...products].sort((a, b) => b.price - a.price);
@@ -48,7 +47,6 @@ const AllSports = () => {
                                 </td>
                             </tr>)
                         }
-
 
                     </tbody>
                 </table>

@@ -10,13 +10,12 @@ import { Navigation } from 'swiper/modules';
 const Banner = () => {
     return (
         <div className='w-11/12 mx-auto py-8'>
-            {/* <img className='w-full h-[600px] mx-auto' src={banner} alt="" /> */}
 
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper text-center">
-        <SwiperSlide><img className='w-full h-[600px]' src={slider1} alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-[600px]' src={slider2} alt="" /></SwiperSlide>
-        <SwiperSlide><img className='w-full h-[600px]' src={slider3} alt="" /></SwiperSlide>
-      </Swiper>
+                <SwiperSlide><img className='w-full h-[600px]' src={slider1} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[600px]' src={slider2} alt="" /></SwiperSlide>
+                <SwiperSlide><img className='w-full h-[600px]' src={slider3} alt="" /></SwiperSlide>
+            </Swiper>
         </div>
     );
 };

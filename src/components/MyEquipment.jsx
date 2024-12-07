@@ -1,24 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext } from '../providers/AuthProvider';
 
 const MyEquipment = () => {
-  // const {user} = useContext(AuthContext);
-  // console.log(user.email)
-  const loadedProducts = useLoaderData();
-  const [products, setProducts] = useState(loadedProducts);
-  // console.log(products)
+  const {user} = useContext(AuthContext);
+  const [products, setProducts] = useState([]);
 
-  // fetch(`http://localhost:5000/products?email=${user.email}`)
-  // .then((response) => response.json())
-  // .then((data) => setProducts(data))
-  // .catch((error) => console.error("Error fetching equipment:", error));
-
-  // const newProduct = products.filter(pc => pc.userEmail === email);
-  // setProducts(newProduct);
-  // console.log(userEmail,email)
+  fetch(`https://my-assignment-10.vercel.app/user-products/${user?.email}`)
+  .then((response) => response.json())
+  .then((data) => setProducts(data))
+  .catch((error) => console.error("Error fetching equipment:", error));
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -55,7 +48,7 @@ const MyEquipment = () => {
       <div className='w-11/12 mx-auto mt-8'>
 
         {
-          products.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
+          products?.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
             <figure className='p-6 ml-6'>
               <img
                 className='w-full md:w-[400px] h-56 md:h-96'
@@ -117,7 +110,6 @@ const MyEquipment = () => {
             </div>
           </div>))
         }
-
 
       </div>
     </Slide>

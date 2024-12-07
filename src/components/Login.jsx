@@ -37,11 +37,25 @@ const Login = () => {
     const handleLoginGoogle = ()=>{
         loginWithGoogle()
         .then(result =>{
-            console.log(result.user)
+            if(result.user){
+              Swal.fire({
+                title: 'Success!',
+                text: 'Login Successful',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+            }
             navigate('/')
         })
         .catch(error => {
-            console.log(error.message)
+            if(error.message){
+              Swal.fire({
+                title: 'Error!',
+                text: 'Your Information is Not Correct',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
+            }
         })
     }
     return (

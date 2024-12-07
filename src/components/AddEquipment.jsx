@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
 import { Zoom } from 'react-awesome-reveal';

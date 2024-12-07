@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/sports',
         element: <AllSports></AllSports>,
-        loader: ()=> fetch('https://my-assignment-10.vercel.app/all-products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
       },
       {
         path: '/addEquipment',
@@ -37,13 +37,12 @@ const router = createBrowserRouter([
           <AddEquipment></AddEquipment>
         </PrivateRoute>
       },
-      // {
-      //   path: '/products/:email',
-      //   element: <PrivateRoute>
-      //     <MyEquipment></MyEquipment>
-      //   </PrivateRoute>,
-      //   loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.email}`)
-      // },
+      {
+        path: '/myEquipment',
+        element: <PrivateRoute>
+          <MyEquipment></MyEquipment>
+        </PrivateRoute>,
+      },
       // {
       //   path: '/myEquipment',
       //   element: <PrivateRoute>
@@ -51,13 +50,13 @@ const router = createBrowserRouter([
       //   </PrivateRoute>,
       //   loader: ()=> fetch('http://localhost:5000/products/email')
       // },
-      {
-        path: '/myEquipment',
-        element: <PrivateRoute>
-          <MyEquipment></MyEquipment>
-        </PrivateRoute>,
-        loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
-      },
+      // {
+      //   path: '/myEquipment',
+      //   element: <PrivateRoute>
+      //     <MyEquipment></MyEquipment>
+      //   </PrivateRoute>,
+      //   loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
+      // },
       {
         path: '/update/:id',
         element: <PrivateRoute>
