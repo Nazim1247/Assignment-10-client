@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 
 const Login = () => {
     const {signInUser, loginWithGoogle} = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const handleLogin = (e)=>{
         e.preventDefault();
@@ -79,13 +81,16 @@ const Login = () => {
           name='email'
           placeholder="email" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password"
+          <input type={showPassword?'text':'password'}
           name='password'
           placeholder="password" className="input input-bordered" required />
+          <button type='button' onClick={()=>setShowPassword(!showPassword)} className='absolute right-4 top-12 text-2xl'>
+            {showPassword?<IoEyeOutline />:<IoEyeOffOutline />}
+          </button>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
