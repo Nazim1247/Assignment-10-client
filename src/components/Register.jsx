@@ -61,7 +61,14 @@ const Register = () => {
           })
       })
       .catch(error => {
-        console.log(error.message)
+        if(error.message){
+          Swal.fire({
+            title: 'Error!',
+            text: 'Already Email in used',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
+        }
       })
   }
   return (
