@@ -3,6 +3,7 @@ import { Slide } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const MyEquipment = () => {
   const {user} = useContext(AuthContext);
@@ -46,23 +47,20 @@ const MyEquipment = () => {
   return (
     <Slide duration={2000} delay={100} direction='down'>
       <div className='w-11/12 mx-auto mt-8'>
-
+      <Helmet>
+      <title>Sports Equipment | My Equipment</title>
+      </Helmet>
         {
           products?.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
-            <figure className='p-6 ml-6'>
+            <figure className='p-4 md:ml-4'>
               <img
-                className='w-full md:w-[400px] h-56 md:h-96'
+                className='w-full h-56 md:h-96'
                 src={product.photo}
                 alt="" />
             </figure>
-            <div className="p-10 space-y-2">
-              <div className='flex items-center gap-4'>
-                <h2 className="card-title">Item Name:</h2>
+            <div className="p-6 md:p-10 space-y-2">
+              <div className=''>
                 <h2 className="card-title">{product.name}</h2>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>description:</p>
-                <p>{product.description}</p>
               </div>
               <div className='flex gap-4'>
                 <p className='font-semibold'>category:</p>
@@ -103,9 +101,13 @@ const MyEquipment = () => {
                 <p className='font-semibold'>userEmail:</p>
                 <p>{product.userEmail}</p>
               </div>
+              <div className=''>
+                <p className='font-semibold'>description:</p>
+                <p>{product.description}</p>
+              </div>
               <div className="card-actions">
-                <Link to={`/update/${product._id}`} className="btn btn-primary">Update</Link>
-                <button onClick={() => handleDelete(product._id)} className="btn btn-primary">Delete</button>
+                <Link to={`/update/${product._id}`} className="btn btn-primary" title='Go to Update Page'>Update</Link>
+                <button onClick={() => handleDelete(product._id)} className="btn btn-primary" title='Click for Delete'>Delete</button>
               </div>
             </div>
           </div>))

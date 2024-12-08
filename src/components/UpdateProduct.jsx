@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zoom } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -45,6 +46,9 @@ const UpdateProduct = () => {
     }
     return (
         <div>
+            <Helmet>
+            <title>Sports Equipment | Update Product</title>
+            </Helmet>
             <Zoom>
             <div className='lg:w-3/4 mx-auto py-8'>
                 <div className="text-center p-10">
@@ -160,7 +164,7 @@ const UpdateProduct = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Update Product</button>
+                            <button className="btn btn-primary" title='Click for Update Product'>Update Product</button>
                         </div>
                     </form>
                 </div>

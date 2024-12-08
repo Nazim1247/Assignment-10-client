@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zoom } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 
 const ProductDetails = () => {
@@ -8,7 +9,9 @@ const ProductDetails = () => {
     return (
         <Zoom>
         <div className='w-11/12 mx-auto py-12'>
-
+        <Helmet>
+        <title>Sports Equipment | Product Details</title>
+        </Helmet>
             <div className="card md:card-side bg-base-100 shadow-md">
                 <figure className='p-6'>
                     <img

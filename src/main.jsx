@@ -43,20 +43,6 @@ const router = createBrowserRouter([
           <MyEquipment></MyEquipment>
         </PrivateRoute>,
       },
-      // {
-      //   path: '/myEquipment',
-      //   element: <PrivateRoute>
-      //     <MyEquipment></MyEquipment>
-      //   </PrivateRoute>,
-      //   loader: ()=> fetch('http://localhost:5000/products/email')
-      // },
-      // {
-      //   path: '/myEquipment',
-      //   element: <PrivateRoute>
-      //     <MyEquipment></MyEquipment>
-      //   </PrivateRoute>,
-      //   loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
-      // },
       {
         path: '/update/:id',
         element: <PrivateRoute>

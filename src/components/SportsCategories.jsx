@@ -11,10 +11,10 @@ const categories = [
 
 const SportsCategories = () => {
     return (
-        <div className='w-11/12 mx-auto md:flex justify-between items-center gap-5 py-5'>
+        <div className='w-11/12 mx-auto grid md:grid-cols-3 lg:grid-cols-6 items-center gap-5 py-5'>
             
             {
-                categories.map(category => <Link key={category.id} className='btn' to={`/sports`}>{category.name}</Link>)
+                categories.map(category => <Link key={category.id} className='btn' to={`/sports`} title='See Our Products'>{category.name}</Link>)
             }
             
         </div>

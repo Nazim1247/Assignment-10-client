@@ -59,7 +59,7 @@ const ProductsCard = ({ product }) => {
               <p>{description}</p>
             </div>
             <div className="card-actions">
-            <Link to={`/productDetails/${_id}`} className="btn btn-primary">View Details</Link>
+            <Link to={`/productDetails/${_id}`} className="btn btn-primary" title='Click for Details'>View Details</Link>
             </div>
           </div>
             </div>            

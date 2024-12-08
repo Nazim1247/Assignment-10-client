@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const {signInUser, loginWithGoogle} = useContext(AuthContext);
@@ -60,6 +61,9 @@ const Login = () => {
     }
     return (
         <div>
+          <Helmet>
+          <title>Sports Equipment | Login</title>
+          </Helmet>
             <div className="hero py-12">
   <div className="hero-content flex-col md:w-1/2 mx-auto">
     <div className="text-center lg:text-left">
@@ -89,7 +93,7 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-        <button onClick={handleLoginGoogle} className='btn'>Login With Google</button>
+        <button type='button' onClick={handleLoginGoogle} className='btn'>Login With Google</button>
         <label className="label">
             <Link to='/register' className="label-text-alt text-lg mx-auto">New to this page? please <span className='text-red-600'> Register</span></Link>
           </label>

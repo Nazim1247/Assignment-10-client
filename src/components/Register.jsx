@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const {createUser, setUser, updateUserProfile} = useContext(AuthContext);
@@ -63,6 +64,9 @@ const Register = () => {
     }
     return (
         <div>
+          <Helmet>
+          <title>Sports Equipment | Register</title>
+          </Helmet>
             <div className="hero py-12">
   <div className="hero-content flex-col md:w-1/2 mx-auto">
     <div className="text-center lg:text-left">

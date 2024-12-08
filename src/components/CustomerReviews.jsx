@@ -1,6 +1,6 @@
 import React from 'react';
+import { FaUserGraduate } from 'react-icons/fa';
 import { FcFeedback } from 'react-icons/fc';
-import { VscFeedback } from 'react-icons/vsc';
 
 const CustomerReviews = () => {
     const reviews = [
@@ -19,7 +19,7 @@ const CustomerReviews = () => {
                     reviews.map(review => (<div key={review.id} className='border-2 p-4 text-center rounded-lg space-y-2'>
                         <p><FcFeedback className='mx-auto text-5xl' /></p>
                         <div className='flex items-center justify-center gap-2'>
-                        <p><VscFeedback className='mx-auto text-xl'/></p>
+                        <p><FaUserGraduate className='mx-auto text-xl'/></p>
                         <h2 className='text-xl font-bold'>{review.name}</h2>
                         </div>
                         <p>{review.feedback}</p>

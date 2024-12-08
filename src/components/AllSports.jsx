@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Zoom } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllSports = () => {
@@ -19,8 +20,11 @@ const AllSports = () => {
     return (
         <Zoom>
         <div className='w-11/12 mx-auto py-8'>
+        <Helmet>
+        <title>Sports Equipment | All Sports Equipment</title>
+        </Helmet>
             <div className='text-center mb-4'>
-                <button onClick={handleSort} className='btn btn-secondary'>Sort by Price</button>
+                <button onClick={handleSort} className='btn btn-secondary' title='Click for Sort'>Sort by Price</button>
             </div>
             <div className="border-2">
                 <table className="table">
@@ -43,7 +47,7 @@ const AllSports = () => {
                                 <td>{product.category}</td>
                                 <td>{product.price}</td>
                                 <td>
-                                    <Link to={`/productDetails/${product._id}`} className="btn btn-primary">View Details</Link>
+                                    <Link to={`/productDetails/${product._id}`} className="btn btn-primary" title='Click for Details'>View Details</Link>
                                 </td>
                             </tr>)
                         }
