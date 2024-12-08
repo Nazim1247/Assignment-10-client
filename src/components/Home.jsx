@@ -44,15 +44,10 @@ const Home = () => {
             </Slide>
 
             <Slide duration={2000} delay={100}>
-                <div>
                 <div className='w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-8'>
                     {
                         products.map(product => <ProductsCard key={product._id} product={product}></ProductsCard>)
                     }
-                </div>
-                    <div className='text-center mb-4'>
-                    <Link className='btn btn-primary' to='/sports'>View Details</Link>
-                    </div>
                 </div>
             </Slide>
 
