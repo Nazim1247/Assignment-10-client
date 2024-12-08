@@ -6,13 +6,13 @@ import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet';
 
 const MyEquipment = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
   fetch(`https://my-assignment-10.vercel.app/user-products/${user?.email}`)
-  .then((response) => response.json())
-  .then((data) => setProducts(data))
-  .catch((error) => console.error("Error fetching equipment:", error));
+    .then((response) => response.json())
+    .then((data) => setProducts(data))
+    .catch((error) => console.error("Error fetching equipment:", error));
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -47,9 +47,9 @@ const MyEquipment = () => {
   return (
     <Slide duration={2000} delay={100} direction='down'>
       <div className='w-11/12 mx-auto mt-8'>
-      <Helmet>
-      <title>Sports Equipment | My Equipment</title>
-      </Helmet>
+        <Helmet>
+          <title>Sports Equipment | My Equipment</title>
+        </Helmet>
         {
           products?.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
             <figure className='p-4 md:ml-4'>
@@ -60,7 +60,7 @@ const MyEquipment = () => {
             </figure>
             <div className="p-6 md:p-10 space-y-2">
               <div className=''>
-                <h2 className="card-title">{product.name}</h2>
+                <h2 className="card-title text-orange-500">{product.name}</h2>
               </div>
               <div className='flex gap-4'>
                 <p className='font-semibold'>category:</p>
@@ -77,17 +77,21 @@ const MyEquipment = () => {
               <div className='flex gap-4'>
                 <p className='font-semibold'>rating:</p>
                 <p>{product.rating}</p>
-                <div className="rating">
-                  <input type="radio" name="rating-1" className="mask mask-star" />
-                  <input type="radio" name="rating-1" className="mask mask-star" defaultChecked />
-                  <input type="radio" name="rating-1" className="mask mask-star" />
-                  <input type="radio" name="rating-1" className="mask mask-star" />
-                  <input type="radio" name="rating-1" className="mask mask-star" />
+                <div className="rating rating-sm">
+                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                  <input
+                    type="radio"
+                    name="rating-6"
+                    className="mask mask-star-2 bg-orange-400"
+                    defaultChecked />
+                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
                 </div>
               </div>
               <div className='flex gap-4'>
                 <p className='font-semibold'>price:</p>
-                <p>$ {product.price}</p>
+                <p><span className='text-orange-500'>$</span> {product.price}</p>
               </div>
               <div className='flex gap-4'>
                 <p className='font-semibold'>processingTime:</p>
@@ -107,7 +111,7 @@ const MyEquipment = () => {
               </div>
               <div className="card-actions">
                 <Link to={`/update/${product._id}`} className="btn btn-primary" title='Go to Update Page'>Update</Link>
-                <button onClick={() => handleDelete(product._id)} className="btn btn-primary" title='Click for Delete'>Delete</button>
+                <button onClick={() => handleDelete(product._id)} className="btn btn-secondary" title='Click for Delete'>Delete</button>
               </div>
             </div>
           </div>))

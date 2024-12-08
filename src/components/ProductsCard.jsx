@@ -13,7 +13,7 @@ const ProductsCard = ({ product }) => {
             alt="" />
         </figure>
         <div className="px-10 pb-6 space-y-2">
-          <h2 className="card-title text-blue-800">{name}</h2>
+          <h2 className="card-title text-orange-500">{name}</h2>
 
           <div className='flex gap-4'>
             <p className='font-semibold'>category:</p>

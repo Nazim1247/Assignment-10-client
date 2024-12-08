@@ -28,12 +28,12 @@ const Navbar = () => {
           <a className="text-2xl font-bold" title='Our Web side Name'>Sports Equipment Online Store</a>
         </div>
         <div className="lg:flex items-center gap-2">
-          <NavLink to='/' className={({ isActive }) => isActive ? 'btn text-blue-700' : 'btn'} title='Click to Home'>Home</NavLink>
-          <NavLink to='/sports' className={({ isActive }) => isActive ? 'btn text-blue-700' : 'btn'} title='Click for See Our All Sports Equipment'>All Sports Equipment</NavLink>
+          <NavLink to='/' className={({ isActive }) => isActive ? 'btn text-orange-500' : 'btn'} title='Click to Home'>Home</NavLink>
+          <NavLink to='/sports' className={({ isActive }) => isActive ? 'btn text-orange-500' : 'btn'} title='Click for See Our All Sports Equipment'>All Sports Equipment</NavLink>
           {
             user && <>
-              <NavLink to='/addEquipment' className={({ isActive }) => isActive ? 'btn text-blue-700' : 'btn'} title='Click for Add Equipment'>Add Equipment</NavLink>
-              <NavLink to='/myEquipment' className={({ isActive }) => isActive ? 'btn text-blue-700' : 'btn'} title='Click for See Your Equipment'>My Equipment</NavLink>
+              <NavLink to='/addEquipment' className={({ isActive }) => isActive ? 'btn text-orange-500' : 'btn'} title='Click for Add Equipment'>Add Equipment</NavLink>
+              <NavLink to='/myEquipment' className={({ isActive }) => isActive ? 'btn text-orange-500' : 'btn'} title='Click for See Your Equipment'>My Equipment</NavLink>
             </>
           }
         </div>
@@ -42,12 +42,12 @@ const Navbar = () => {
             user ?
               <div className='flex mx-auto space-x-2'>
                 <img title={user.displayName} className='w-12 h-12 rounded-full' src={user?.photoURL} alt="" />
-                <a onClick={handleSignout} className='btn btn-primary' title='Click for Logout'>Logout</a>
+                <a onClick={handleSignout} className='btn btn-secondary' title='Click for Logout'>Logout</a>
               </div>
               :
               <div className='flex mx-auto space-x-2'>
-                <Link to='/login' className='btn btn-primary' title='Click for Login'>Login</Link>
-                <Link to='/register' className='btn btn-primary' title='Click for Register'>Register</Link>
+                <Link to='/login' className='btn btn-secondary' title='Click for Login'>Login</Link>
+                <Link to='/register' className='btn btn-secondary' title='Click for Register'>Register</Link>
               </div>
           }
         </div>

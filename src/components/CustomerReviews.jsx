@@ -19,7 +19,7 @@ const CustomerReviews = () => {
                     reviews.map(review => (<div key={review.id} className='border-2 p-4 text-center rounded-lg space-y-2'>
                         <p><FcFeedback className='mx-auto text-5xl' /></p>
                         <div className='flex items-center justify-center gap-2'>
-                        <p><FaUserGraduate className='mx-auto text-xl'/></p>
+                        <p><FaUserGraduate className='mx-auto text-xl text-orange-500'/></p>
                         <h2 className='text-xl font-bold'>{review.name}</h2>
                         </div>
                         <p>{review.feedback}</p>
