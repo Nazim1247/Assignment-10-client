@@ -8,11 +8,11 @@ const ProductDetails = () => {
     const { name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, } = product;
     return (
         <Zoom>
-            <div className='w-11/12 mx-auto py-12'>
+            <div className='w-11/12 mx-auto py-8 mt-16'>
                 <Helmet>
                     <title>Sports Equipment | Product Details</title>
                 </Helmet>
-                <div className="card md:card-side bg-base-100 shadow-md">
+                <div className="card md:card-side border shadow-md">
                     <figure className='p-6'>
                         <img
                             className='w-full h-56 md:h-96 rounded-lg'

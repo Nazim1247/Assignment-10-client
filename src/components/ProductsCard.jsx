@@ -2,30 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductsCard = ({ product }) => {
-  const { _id, name, rating, category, stockStatus, price, processingTime, photo, } = product;
+  const { _id, name, rating, category, price, photo, } = product;
   return (
     <div className=''>
-      <div className="card border-2 shadow-md">
-        <figure className='p-6'>
+      <div className="card border shadow-md h-full flex flex-col justify-between">
+        <figure className='p-4'>
           <img
-            className='w-full h-56 rounded-lg'
+            className='md:w-56 md:h-28 rounded-lg'
             src={photo}
             alt="" />
         </figure>
-        <div className="px-10 pb-6 space-y-2">
+        <div className="p-4">
           <h2 className="card-title text-orange-500">{name}</h2>
 
           <div className='flex gap-4'>
             <p className='font-semibold'>category:</p>
             <p>{category}</p>
-          </div>
-          <div className='flex gap-4'>
-            <p className='font-semibold'>stockStatus:</p>
-            <p>Available Stock {stockStatus}</p>
-          </div>
-          <div className='flex gap-4'>
-            <p className='font-semibold'>processingTime:</p>
-            <p>{processingTime}</p>
           </div>
           <div className='flex gap-4'>
             <p className='font-semibold'>rating:</p>
@@ -47,7 +39,7 @@ const ProductsCard = ({ product }) => {
             <p><span className='text-orange-500'>$</span> {price}</p>
           </div>
           <div className="card-actions">
-            <Link to={`/productDetails/${_id}`} className="btn btn-primary w-full" title='Click for Details'>View Details</Link>
+            <Link to={`/productDetails/${_id}`} className="btn btn-primary w-full mt-2" title='Click for Details'>View Details</Link>
           </div>
         </div>
       </div>

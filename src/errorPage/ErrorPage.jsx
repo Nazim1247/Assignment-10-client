@@ -1,5 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { FaArrowLeftLong } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
@@ -7,7 +9,12 @@ const ErrorPage = () => {
             <Helmet>
             <title>Sports Equipment | Error</title>
             </Helmet>
-            <h2 className='text-3xl text-red-600 text-center mt-12'>Not Found Data</h2>
+            <div className='text-center space-y-3 mt-12'>
+            <h2 className='text-xl'>Opps !!</h2>
+            <p className='text-3xl'>404</p>
+            <h2 className='text-xl text-red-600'>Not Found Data</h2>
+            <p><Link to={'/'} className='btn btn-primary'><FaArrowLeftLong /> Back to Home</Link></p>
+            </div>
         </div>
     );
 };

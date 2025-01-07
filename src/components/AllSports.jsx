@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Zoom } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
+import ProductsCard from './ProductsCard';
 
 const AllSports = () => {
     const loadedProducts = useLoaderData();
@@ -12,51 +13,30 @@ const AllSports = () => {
         // setProducts(sortedProducts);
 
         fetch('https://my-assignment-10.vercel.app/all-products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-        .catch(error => console.log(error))
+            .then(res => res.json())
+            .then(data => setProducts(data))
+            .catch(error => console.log(error))
 
     }
     return (
         <Zoom>
-        <div className='w-11/12 mx-auto py-8'>
-        <Helmet>
-        <title>Sports Equipment | All Sports Equipment</title>
-        </Helmet>
-            <div className='text-center mb-4'>
-                <button onClick={handleSort} className='btn btn-secondary' title='Click for Sort'>Sort by Price</button>
-            </div>
-            <div className="border-2">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
+            <div className='w-11/12 mx-auto pb-8 mt-16'>
+                <Helmet>
+                    <title>Sports Equipment | All Sports Equipment</title>
+                </Helmet>
+                <div className='text-center mb-4'>
+                    <button onClick={handleSort} className='btn btn-secondary mt-8' title='Click for Sort'>Sort by Price</button>
+                </div>
+                <div className="border rounded-md">
+                    <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-4'>
                         {
-                            products.map((product, i) => <tr key={product._id}>
-                                <th>{i + 1}</th>
-                                <td>{product.name}</td>
-                                <td>{product.category}</td>
-                                <td>{product.price}</td>
-                                <td>
-                                    <Link to={`/productDetails/${product._id}`} className="btn btn-primary" title='Click for Details'>View Details</Link>
-                                </td>
-                            </tr>)
+                            products.map(product => <ProductsCard key={product._id} product={product}></ProductsCard>)
                         }
+                    </div>
+                    
+                </div>
 
-                    </tbody>
-                </table>
             </div>
-
-        </div>
         </Zoom>
     );
 };

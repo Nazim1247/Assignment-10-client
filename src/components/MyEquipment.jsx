@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Slide } from 'react-awesome-reveal';
+import { Zoom } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
@@ -45,80 +45,62 @@ const MyEquipment = () => {
     });
   }
   return (
-    <Slide duration={2000} delay={100} direction='down'>
-      <div className='w-11/12 mx-auto mt-8'>
+    <Zoom>
+      <div className='w-11/12 mx-auto pt-8 mt-16'>
         <Helmet>
           <title>Sports Equipment | My Equipment</title>
         </Helmet>
-        {
-          products?.map(product => (<div key={product._id} className="card md:card-side bg-base-100 shadow-md mb-8">
-            <figure className='p-4 md:ml-4'>
-              <img
-                className='w-full h-56 md:h-96'
-                src={product.photo}
-                alt="" />
-            </figure>
-            <div className="p-6 md:p-10 space-y-2">
-              <div className=''>
-                <h2 className="card-title text-orange-500">{product.name}</h2>
+
+<table className="table">
+                        
+                        <thead className='text-gray-400'>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Rating</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {
+                                products.map((product, i) => <tr key={product._id}>
+                                    <th>{i + 1}</th>
+                                    <td>{product.name}</td>
+                                    <td>{product.category}</td>
+                                    <td>${product.price}</td>
+                                    <td>
+                                        <div className='flex items-center gap-1'>
+                                            <p>{product.rating}</p>
+                                            <div className="rating rating-sm">
+                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                                                <input
+                                                    type="radio"
+                                                    name="rating-6"
+                                                    className="mask mask-star-2 bg-orange-400"
+                                                    defaultChecked />
+                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                    <div className="card-actions">
+                <Link to={`/update/${product._id}`} className="bg-primary text-white px-4 py-2 rounded-md" title='Go to Update Page'>Update</Link>
+                <button onClick={() => handleDelete(product._id)} className="bg-secondary text-white px-4 py-2 rounded-md" title='Click for Delete'>Delete</button>
               </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>category:</p>
-                <p>{product.category}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>customization:</p>
-                <p>{product.customization}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>stockStatus:</p>
-                <p>Available Stock {product.stockStatus}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>rating:</p>
-                <p>{product.rating}</p>
-                <div className="rating rating-sm">
-                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                  <input
-                    type="radio"
-                    name="rating-6"
-                    className="mask mask-star-2 bg-orange-400"
-                    defaultChecked />
-                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                </div>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>price:</p>
-                <p><span className='text-orange-500'>$</span> {product.price}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>processingTime:</p>
-                <p>{product.processingTime}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>userName:</p>
-                <p>{product.userName}</p>
-              </div>
-              <div className='flex gap-4'>
-                <p className='font-semibold'>userEmail:</p>
-                <p>{product.userEmail}</p>
-              </div>
-              <div className=''>
-                <p className='font-semibold'>description:</p>
-                <p>{product.description}</p>
-              </div>
-              <div className="card-actions">
-                <Link to={`/update/${product._id}`} className="btn btn-primary" title='Go to Update Page'>Update</Link>
-                <button onClick={() => handleDelete(product._id)} className="btn btn-secondary" title='Click for Delete'>Delete</button>
-              </div>
-            </div>
-          </div>))
-        }
+                                    </td>
+                                </tr>)
+                            }
+
+                        </tbody>
+                    </table>
 
       </div>
-    </Slide>
+    </Zoom>
   );
 };
 

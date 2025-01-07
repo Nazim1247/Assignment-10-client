@@ -66,28 +66,31 @@ const Login = () => {
           <Helmet>
           <title>Sports Equipment | Login</title>
           </Helmet>
-            <div className="hero py-12">
+            <div className="hero py-8 mt-16">
   <div className="hero-content flex-col md:w-1/2 mx-auto">
     <div className="text-center lg:text-left">
       <h1 className="text-2xl font-bold">Login now!</h1>
     </div>
-    <div className="card bg-base-100 w-full shadow-xl">
+    <div className="card w-full border shadow-md">
       <form onSubmit={handleLogin} className="card-body">
+      <button type='button' onClick={handleLoginGoogle} className='btn btn-neutral my-4'>Continue With Google</button>
+      <Link to='/register' className="text-lg mx-auto text-center">New to this page? <span className='text-red-600'> Register</span></Link>
+                    <div className='divider'>OR</div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Email</span>
+            <span>Email</span>
           </label>
           <input type="email"
           name='email'
-          placeholder="email" className="input input-bordered" required />
+          placeholder="email" className="input input-bordered bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100" required />
         </div>
         <div className="form-control relative">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span>Password</span>
           </label>
           <input type={showPassword?'text':'password'}
           name='password'
-          placeholder="password" className="input input-bordered" required />
+          placeholder="password" className="input input-bordered bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100" required />
           <button type='button' onClick={()=>setShowPassword(!showPassword)} className='absolute right-4 top-12 text-2xl'>
             {showPassword?<IoEyeOutline />:<IoEyeOffOutline />}
           </button>
@@ -98,10 +101,7 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-        <button type='button' onClick={handleLoginGoogle} className='btn'>Login With Google</button>
-        <label className="label">
-            <Link to='/register' className="label-text-alt text-lg mx-auto">New to this page? please <span className='text-red-600'> Register</span></Link>
-          </label>
+        
       </form>
     </div>
   </div>
