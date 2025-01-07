@@ -3,9 +3,11 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
 import { Zoom } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleAddProduct = (e) => {
         e.preventDefault();
@@ -24,7 +26,7 @@ const AddEquipment = () => {
         const newProduct = { name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, };
 
         // send data to the server
-        fetch('https://my-assignment-10-7291e.web.app/products', {
+        fetch('https://my-assignment-10.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -34,6 +36,7 @@ const AddEquipment = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
+                    navigate('/myEquipment')
                     Swal.fire({
                         title: 'Success!',
                         text: 'Product Added Successfully',
@@ -113,15 +116,15 @@ const AddEquipment = () => {
                                     <label className="label">
                                         <span>Category</span>
                                     </label>
-                                    <select name='category' className="select select-bordered w-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100" required>
+                                    <select name='category' className="select select-bordered w-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100">
                                         <option disabled selected>Select Your Category</option>
                                         <option>Cricket Gear</option>
                                         <option>Football</option>
-                                        <option>Tennis Ball</option>
+                                        <option>Tennis ball</option>
                                         <option>Basketball</option>
                                         <option>Gym Equipment</option>
                                     </select>
-                                    {/* <input type="text" name='category' placeholder="Category" className="input input-bordered bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100" required /> */}
+                                    
                                 </div>
                                 <div className="form-control flex-1">
                                     <label className="label">

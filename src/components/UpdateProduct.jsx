@@ -1,10 +1,11 @@
 import React from 'react';
 import { Zoom } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateProduct = () => {
+    const navigate = useNavigate();
     const product = useLoaderData();
     const { _id, name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, } = product;
 
@@ -25,7 +26,7 @@ const UpdateProduct = () => {
         const updatedProduct = { name, rating, category, customization, userEmail, stockStatus, price, description, processingTime, userName, photo, };
 
         // send data to the server
-        fetch(`https://my-assignment-10-7291e.web.app/products/${_id}`, {
+        fetch(`https://my-assignment-10.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -35,6 +36,7 @@ const UpdateProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    navigate('/myEquipment')
                     Swal.fire({
                         title: 'Success!',
                         text: 'Product Updated Successfully',

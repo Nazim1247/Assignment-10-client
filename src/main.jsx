@@ -24,12 +24,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('https://my-assignment-10-7291e.web.app/fixed-products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/fixed-products')
       },
       {
         path: '/sports',
         element: <AllSports></AllSports>,
-        loader: ()=> fetch('https://my-assignment-10-7291e.web.app/products')
+        loader: ()=> fetch('https://my-assignment-10.vercel.app/products')
       },
       {
         path: '/addEquipment',
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdateProduct></UpdateProduct>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`https://my-assignment-10-7291e.web.app/products/${params.id}`)
+        loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.id}`)
       },
       {
         path: '/login',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ProductDetails></ProductDetails>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`https://my-assignment-10-7291e.web.app/products/${params.id}`)
+        loader: ({params})=> fetch(`https://my-assignment-10.vercel.app/products/${params.id}`)
       },
     ],
   },

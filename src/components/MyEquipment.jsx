@@ -9,7 +9,7 @@ const MyEquipment = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
-  fetch(`https://my-assignment-10-7291e.web.app/user-products/${user?.email}`)
+  fetch(`https://my-assignment-10.vercel.app/user-products/${user?.email}`)
     .then((response) => response.json())
     .then((data) => setProducts(data))
     .catch((error) => console.error("Error fetching equipment:", error));
@@ -26,7 +26,7 @@ const MyEquipment = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`https://my-assignment-10-7291e.web.app/products/${id}`, {
+        fetch(`https://my-assignment-10.vercel.app/products/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -51,53 +51,53 @@ const MyEquipment = () => {
           <title>Sports Equipment | My Equipment</title>
         </Helmet>
 
-<table className="table">
-                        
-                        <thead className='text-gray-400'>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Rating</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            {
-                                products.map((product, i) => <tr key={product._id}>
-                                    <th>{i + 1}</th>
-                                    <td>{product.name}</td>
-                                    <td>{product.category}</td>
-                                    <td>${product.price}</td>
-                                    <td>
-                                        <div className='flex items-center gap-1'>
-                                            <p>{product.rating}</p>
-                                            <div className="rating rating-sm">
-                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                                <input
-                                                    type="radio"
-                                                    name="rating-6"
-                                                    className="mask mask-star-2 bg-orange-400"
-                                                    defaultChecked />
-                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                                <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                    <div className="card-actions">
-                <Link to={`/update/${product._id}`} className="bg-primary text-white px-4 py-2 rounded-md" title='Go to Update Page'>Update</Link>
-                <button onClick={() => handleDelete(product._id)} className="bg-secondary text-white px-4 py-2 rounded-md" title='Click for Delete'>Delete</button>
-              </div>
-                                    </td>
-                                </tr>)
-                            }
+        <table className="table">
 
-                        </tbody>
-                    </table>
+          <thead className='text-gray-400'>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Rating</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {
+              products.map((product, i) => <tr key={product._id}>
+                <th>{i + 1}</th>
+                <td>{product.name}</td>
+                <td>{product.category}</td>
+                <td>${product.price}</td>
+                <td>
+                  <div className='flex items-center gap-1'>
+                    <p>{product.rating}</p>
+                    <div className="rating rating-sm">
+                      <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                      <input
+                        type="radio"
+                        name="rating-6"
+                        className="mask mask-star-2 bg-orange-400"
+                        defaultChecked />
+                      <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                      <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                      <input type="radio" name="rating-6" className="mask mask-star-2 bg-orange-400" />
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div className="card-actions">
+                    <Link to={`/update/${product._id}`} className="bg-primary text-white px-4 py-2 rounded-md" title='Go to Update Page'>Update</Link>
+                    <button onClick={() => handleDelete(product._id)} className="bg-secondary text-white px-4 py-2 rounded-md" title='Click for Delete'>Delete</button>
+                  </div>
+                </td>
+              </tr>)
+            }
+
+          </tbody>
+        </table>
 
       </div>
     </Zoom>

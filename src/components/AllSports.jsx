@@ -12,7 +12,7 @@ const AllSports = () => {
         // const sortedProducts = [...products].sort((a, b) => b.price - a.price);
         // setProducts(sortedProducts);
 
-        fetch('https://my-assignment-10-7291e.web.app/all-products')
+        fetch('https://my-assignment-10.vercel.app/all-products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(error => console.log(error))
