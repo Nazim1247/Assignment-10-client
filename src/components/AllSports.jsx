@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Zoom } from 'react-awesome-reveal';
 import { Helmet } from 'react-helmet';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import ProductsCard from './ProductsCard';
 
 const AllSports = () => {
@@ -12,7 +12,7 @@ const AllSports = () => {
         // const sortedProducts = [...products].sort((a, b) => b.price - a.price);
         // setProducts(sortedProducts);
 
-        fetch('https://my-assignment-10.vercel.app/all-products')
+        fetch('https://my-assignment-10-7291e.web.app/all-products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(error => console.log(error))

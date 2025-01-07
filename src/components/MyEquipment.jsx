@@ -9,7 +9,7 @@ const MyEquipment = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
-  fetch(`https://my-assignment-10.vercel.app/user-products/${user?.email}`)
+  fetch(`https://my-assignment-10-7291e.web.app/user-products/${user?.email}`)
     .then((response) => response.json())
     .then((data) => setProducts(data))
     .catch((error) => console.error("Error fetching equipment:", error));
@@ -26,7 +26,7 @@ const MyEquipment = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`https://my-assignment-10.vercel.app/products/${id}`, {
+        fetch(`https://my-assignment-10-7291e.web.app/products/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
