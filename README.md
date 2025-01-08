@@ -1,5 +1,9 @@
 # Sports Equipment Online Store (Client Side)
 
+## live site URL.
+
+### https://my-assignment-10-7291e.web.app/
+
 ## Project Overview
 The **Sports Equipment Online Store** is a dynamic web application that allows users to browse, filter, and purchase various sports equipment. It provides an interactive and user-friendly experience, complete with authentication and category-based filtering.
 
